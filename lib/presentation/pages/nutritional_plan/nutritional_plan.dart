@@ -14,34 +14,35 @@ class NutritionalPlan extends StatelessWidget {
       create: (_) => MealsBloc()..add(LoadMealsEvent()),
       child: Scaffold(
         appBar: const CustomAppBarAlwaysFit(automaticallyImplyLeading: true),
-        body: SafeArea(
-          child: Column(
-            children: [
-              const ElevatedHeaderBox(title: 'Plano nutricional'),
-              const SizedBox(height: 16),
-              Text(
-                'Refeições do dia',
-                style: Theme.of(context).textTheme.titleMedium,
-              ),
-              const SizedBox(height: 14),
-              Expanded(
-                child: BlocBuilder<MealsBloc, MealsState>(
-                  builder: (context, state) {
-                    if (state is MealsLoading) {
-                      return const Center(child: CircularProgressIndicator());
-                    }
+       body: SafeArea(
+  child: BlocBuilder<MealsBloc, MealsState>(
+    builder: (context, state) {
+      if (state is MealsLoading) {
+        return const Center(child: CircularProgressIndicator());
+      }
 
-                    if (state is MealsLoaded) {
-                      return CardDailyMealWidget(mealList: state.meals);
-                    }
+      if (state is MealsLoaded) {
+        return ListView(
+          
+          children: [
+            const ElevatedHeaderBox(title: 'Plano nutricional'),
+            const SizedBox(height: 16),
+            Text(
+              textAlign: TextAlign.center,
+              'Refeições do dia',
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
+            const SizedBox(height: 14),
+            CardDailyMealWidget(mealList: state.meals),
+          ],
+        );
+      }
 
-                    return const SizedBox.shrink();
-                  },
-                ),
-              ),
-            ],
-          ),
-        ),
+      return const SizedBox.shrink();
+    },
+  ),
+),
+
       ),
     );
   }
