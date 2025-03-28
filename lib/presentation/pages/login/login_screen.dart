@@ -74,86 +74,90 @@ class _LoginScreenState extends State<LoginScreen> {
                           opacity: state is LoginLoading ? 0.3 : 1.0,
                           child: AbsorbPointer(
                             absorbing: state is LoginLoading,
-                            child: SizedBox(
-                              height: constraints.maxHeight,
-                              width: constraints.maxWidth,
-                              child: Card(
-                                elevation: 6,
-                                color: Theme.of(context).cardColor,
-                                child: Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 30),
-                                  child: Form(
-                                    key: formKey,
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        const SizedBox(height: 40),
-                                        Align(
-                                          alignment: Alignment.center,
-                                          child: Text(
-                                            'Login',
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodyLarge,
-                                          ),
-                                        ),
-                                        const SizedBox(height: 40),
-                                        Text('Olá!',
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .displaySmall),
-                                        const SizedBox(height: 20),
-                                        Text(
-                                          'Este é o ambiente seguro de login da Always Fit ® ',
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .displayMedium,
-                                        ),
-                                        const SizedBox(height: 40),
-                                        Text(
-                                            'Para acessar, informe suas credenciais.',
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .displaySmall),
-                                        const SizedBox(height: 16),
-                                        if (loginError)
-                                          Padding(
-                                            padding: const EdgeInsets.only(
-                                                bottom: 8),
+                            child: SingleChildScrollView(
+                              padding: EdgeInsets.only(
+                                bottom: MediaQuery.of(context).viewInsets.bottom + 20,
+                              ),
+                              child: ConstrainedBox(
+                                constraints: BoxConstraints(
+                                  minHeight: constraints.maxHeight,
+                                  minWidth: constraints.maxWidth,
+                                ),
+                                child: Card(
+                                  elevation: 6,
+                                  color: Theme.of(context).cardColor,
+                                  child: Padding(
+                                    padding: const EdgeInsets.symmetric(horizontal: 30),
+                                    child: Form(
+                                      key: formKey,
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          const SizedBox(height: 40),
+                                          Align(
+                                            alignment: Alignment.center,
                                             child: Text(
-                                              'E-mail ou senha incorretos.',
+                                              'Login',
                                               style: Theme.of(context)
                                                   .textTheme
-                                                  .displaySmall
-                                                  ?.copyWith(
-                                                    color: AppColors.error,
-                                                    fontWeight: FontWeight.w600,
-                                                  ),
+                                                  .bodyLarge,
                                             ),
                                           ),
-                                        CustomInputAlwaysFit(
-                                          focus: _emailFocus,
-                                          validator: _validators.email,
-                                          label: 'E-mail',
-                                          controller: emailEC,
-                                          type: TextInputType.emailAddress,
-                                        ),
-                                        CustomInputAlwaysFit(
-                                          focus: _passwordFocus,
-                                          validator: _validators.password,
-                                          type: TextInputType.visiblePassword,
-                                          label: 'Senha',
-                                          controller: passwordEC,
-                                        ),
-                                        PrimaryButton(
-                                          label: 'Logar',
-                                          onPressed: _onLogin,
-                                        ),
-                                        const SizedBox(height: 40),
-                                      ],
+                                          const SizedBox(height: 40),
+                                          Text('Olá!',
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .displaySmall),
+                                          const SizedBox(height: 20),
+                                          Text(
+                                            'Este é o ambiente seguro de login da Always Fit ® ',
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .displayMedium,
+                                          ),
+                                          const SizedBox(height: 40),
+                                          Text(
+                                              'Para acessar, informe suas credenciais.',
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .displaySmall),
+                                          const SizedBox(height: 16),
+                                          if (loginError)
+                                            Padding(
+                                              padding: const EdgeInsets.only(bottom: 8),
+                                              child: Text(
+                                                'E-mail ou senha incorretos.',
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .displaySmall
+                                                    ?.copyWith(
+                                                      color: AppColors.error,
+                                                      fontWeight: FontWeight.w600,
+                                                    ),
+                                              ),
+                                            ),
+                                          CustomInputAlwaysFit(
+                                            focus: _emailFocus,
+                                            validator: _validators.email,
+                                            label: 'E-mail',
+                                            controller: emailEC,
+                                            type: TextInputType.emailAddress,
+                                          ),
+                                          CustomInputAlwaysFit(
+                                            focus: _passwordFocus,
+                                            validator: _validators.password,
+                                            type: TextInputType.visiblePassword,
+                                            label: 'Senha',
+                                            controller: passwordEC,
+                                          ),
+                                          PrimaryButton(
+                                            label: 'Logar',
+                                            onPressed: _onLogin,
+                                          ),
+                                          const SizedBox(height: 40),
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),
