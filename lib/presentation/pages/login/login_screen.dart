@@ -102,7 +102,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                             style: Theme.of(context).textTheme.displaySmall),
                                         const SizedBox(height: 20),
                                         Text(
-                                          'Este é o ambiente seguro de login\n da Always Fit ® ',
+                                          'Este é o ambiente seguro de login da Always Fit ® ',
                                           style: Theme.of(context).textTheme.displayMedium,
                                         ),
                                         const SizedBox(height: 40),
