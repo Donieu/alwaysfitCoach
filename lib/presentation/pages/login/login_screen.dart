@@ -63,7 +63,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: BlocConsumer<LoginBloc, LoginState>(
                   listener: (context, state) {
                     if (state is LoginSuccess) {
-                      Navigator.of(context).pushReplacementNamed(NamedRoutes.bottomappbar.route);
+                      Navigator.of(context).pushReplacementNamed(NamedRoutes.dashboard.route);
                     } else if (state is LoginError) {
                       setState(() => loginError = true);
                     }

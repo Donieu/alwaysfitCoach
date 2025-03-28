@@ -23,7 +23,7 @@ class _SplashScreenState extends State<SplashScreen> {
     return BlocListener<SplashBloc, SplashState>(
       listener: (context, state) {
         if (state is SplashRoute) {
-          Navigator.of(context).pushReplacementNamed(NamedRoutes.dashboard.route);
+          Navigator.of(context).pushReplacementNamed(NamedRoutes.loginScreen.route);
         }
       },
       child: Scaffold(
