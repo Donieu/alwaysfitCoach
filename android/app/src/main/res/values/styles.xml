@@ -1,0 +1,15 @@
+<resources>
+
+    <!-- Tema aplicado durante o splash screen (antes do Flutter iniciar) -->
+    <style name="LaunchTheme" parent="@android:style/Theme.Light.NoTitleBar">
+        <!-- Fundo da splash screen -->
+        <item name="android:windowBackground">@drawable/launch_background</item>
+    </style>
+
+    <!-- Tema da app principal, usado após o Flutter iniciar -->
+    <style name="NormalTheme" parent="@android:style/Theme.Light.NoTitleBar">
+        <!-- Cor de fundo da janela principal (herdada do sistema) -->
+        <item name="android:windowBackground">?android:colorBackground</item>
+    </style>
+
+</resources>
