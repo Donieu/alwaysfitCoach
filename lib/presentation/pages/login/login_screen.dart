@@ -47,9 +47,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
-      resizeToAvoidBottomInset: false,
-      
+      resizeToAvoidBottomInset: true,
       appBar: const CustomAppBarAlwaysFit(),
       body: SafeArea(
         child: LayoutBuilder(
@@ -63,7 +61,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: BlocConsumer<LoginBloc, LoginState>(
                   listener: (context, state) {
                     if (state is LoginSuccess) {
-                      Navigator.of(context).pushReplacementNamed(NamedRoutes.dashboard.route);
+                      Navigator.of(context)
+                          .pushReplacementNamed(NamedRoutes.dashboard.route);
                     } else if (state is LoginError) {
                       setState(() => loginError = true);
                     }
@@ -82,36 +81,48 @@ class _LoginScreenState extends State<LoginScreen> {
                                 elevation: 6,
                                 color: Theme.of(context).cardColor,
                                 child: Padding(
-                                  padding: const EdgeInsets.symmetric(horizontal: 30),
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 30),
                                   child: Form(
                                     key: formKey,
                                     child: Column(
                                       mainAxisSize: MainAxisSize.min,
-                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       children: [
                                         const SizedBox(height: 40),
                                         Align(
                                           alignment: Alignment.center,
                                           child: Text(
                                             'Login',
-                                            style: Theme.of(context).textTheme.bodyLarge,
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .bodyLarge,
                                           ),
                                         ),
                                         const SizedBox(height: 40),
                                         Text('Olá!',
-                                            style: Theme.of(context).textTheme.displaySmall),
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .displaySmall),
                                         const SizedBox(height: 20),
                                         Text(
                                           'Este é o ambiente seguro de login da Always Fit ® ',
-                                          style: Theme.of(context).textTheme.displayMedium,
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .displayMedium,
                                         ),
                                         const SizedBox(height: 40),
-                                        Text('Para acessar, informe suas credenciais.',
-                                            style: Theme.of(context).textTheme.displaySmall),
+                                        Text(
+                                            'Para acessar, informe suas credenciais.',
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .displaySmall),
                                         const SizedBox(height: 16),
                                         if (loginError)
                                           Padding(
-                                            padding: const EdgeInsets.only(bottom: 8),
+                                            padding: const EdgeInsets.only(
+                                                bottom: 8),
                                             child: Text(
                                               'E-mail ou senha incorretos.',
                                               style: Theme.of(context)
