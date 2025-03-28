@@ -1,16 +1,28 @@
-# alwaysfit
 
-A new Flutter project.
+---
 
-## Getting Started
+## ⚙️ Instalação (Android)
 
-This project is a starting point for a Flutter application.
+> ⚠️ Certifique-se de ter o Flutter SDK corretamente instalado.
 
-A few resources to get you started if this is your first Flutter project:
+### 🔧 Pré-requisitos
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- Flutter 3.27.1
+- Dart 3.6.0
+- Android Studio ou VSCode com extensão Flutter
+- Emulador Android ou dispositivo físico via USB
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### 📥 Passo a passo
+
+```bash
+# 1. Clone o projeto
+git clone https://github.com/seu-usuario/alwaysfit.git
+cd alwaysfit
+
+# 2. Instale as dependências
+flutter pub get
+
+# 3. Rode o app
+flutter run
+
+
